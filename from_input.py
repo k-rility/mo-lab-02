@@ -1,11 +1,16 @@
 def get_data(file):
     A = []
-    c = []
     b = []
+    c = []
     lines = [line.replace('\n', '') for line in file]
+
     for line in lines:
         if 'c=' in line:
             c = [float(i) for i in line[line.find('[') + 1:line.find(']')].split()]
+        elif 'min' in line:
+            min_max = line
+        elif 'max' in line:
+            min_max = line
         elif 'b=' in line:
             b = [float(i) for i in line[line.find('[') + 1:line.find(']')].split()]
         else:
